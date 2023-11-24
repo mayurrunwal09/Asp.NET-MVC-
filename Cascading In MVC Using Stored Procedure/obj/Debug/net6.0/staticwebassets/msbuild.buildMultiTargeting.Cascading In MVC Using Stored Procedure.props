@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Cascading In MVC Using Stored Procedure.props" />
+</Project>

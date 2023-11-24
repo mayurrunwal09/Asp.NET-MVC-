@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Cascading_In_MVC_Using_Stored_Procedure.Models.Employee>
+
+<h2> Employee</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(i=> i.EmpId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(i=> i.EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(i=> i.Age )
+            </th>
+
+        
+            <th>
+                @Html.DisplayNameFor(i=> i.MobileNo  )
+            </th>
+            <th>
+                @Html.DisplayNameFor(i=> i.Department .DepName )
+            </th>
+            <th>
+                @Html.DisplayNameFor(i=> i.Country.CountryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(i=> i.State.StateName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(i=> i.City.CityName)
+            </th>
+
+            <th>
+                <a onclick="showInPopup('@Url.Action("AddOrEdit","Employee",null,Context.Request.Scheme)','New Employee')" class="btn btn-success"><i class="fas fa-random"></i>Add Employee</a>
+            </th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelitem => item.EmpId )
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelitem => item.EmpName )
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelitem => item.Age )
+                </td>
+
+               
+                <td>
+                    @Html.DisplayFor(modelitem => item.MobileNo  )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.Department .DepName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.Country.CountryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.State.StateName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelitem => item.City.CityName)
+                </td>
+
+
+                <td>
+                    <div>
+                        <a onclick="showInPopup('@Url.Action("AddOrEdit","Employee",new{id = item.EmpId },Context.Request.Scheme)','Edit Emp')" class="btn btn-info">Edit </a>
+                        <form asp-action="Delete" asp-route-id="@item.EmpId" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

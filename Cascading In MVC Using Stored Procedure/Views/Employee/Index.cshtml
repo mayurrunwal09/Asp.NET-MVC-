@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Cascading_In_MVC_Using_Stored_Procedure.Models.Employee >
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll" , Model)
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
